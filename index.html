@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8"/>
+    <title>hello-wasm example</title>
+</head>
+<body>
+<script type="module">
+    import LAZRSWebAssemblyMain from "./js/laz_rs_webassembly.js";
+
+    const instance = new LAZRSWebAssemblyMain();
+    const result = await fetch('./assets/38_environment.laz');
+    const ab = await result.arrayBuffer();
+    const bytes = new Uint8Array(ab);
+
+    for (let i = 0; i < 10; i++) {
+        await instance.read(bytes);
+        console.log(i);
+    }
+
+
+</script>
+</body>
+</html>

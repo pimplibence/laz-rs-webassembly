@@ -1,0 +1,16 @@
+[package]
+name = "laz_rs_webassembly"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasm-bindgen = "0.2.92"
+web-sys = "0.3.69"
+js-sys = "0.3.69"
+laz = "0.9.1"
+byteorder = "1.5.0"
+wasm-bindgen-futures = "0.4.43"
+console = "0.15.8"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
