@@ -5,6 +5,10 @@ export default class LAZRSWebAssemblyMain {
     worker;
 
     constructor(options) {
+        if (options?.libPath) {
+            this.libPath = options.libPath;
+        }
+
         if (options?.workerPath) {
             this.workerPath = options.workerPath;
         }

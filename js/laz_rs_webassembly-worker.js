@@ -30,7 +30,7 @@ onmessage = async (event) => {
             min_y: result.header.min_y,
             min_z: result.header.min_z,
         },
-        coordinates: new Float64Array(instance.memory.buffer, result.coordinates_pointer, result.coordinates_length),
+        coordinates: new Float32Array(instance.memory.buffer, result.coordinates_pointer, result.coordinates_length),
         intensities: new Uint16Array(instance.memory.buffer, result.intensity_pointer, result.intensity_length),
         classifications: new Uint8Array(instance.memory.buffer, result.classification_pointer, result.classification_length)
     };
