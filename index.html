@@ -10,6 +10,7 @@
 
     const instance = new LAZRSWebAssemblyMain();
     const result = await fetch('./assets/39.laz');
+    // const result = await fetch('./assets/MLS3_HDS_0351_002_240606_085543_Scanner_1.laz');
     const ab = await result.arrayBuffer();
     const bytes = new Uint8Array(ab);
 
