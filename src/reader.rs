@@ -1,9 +1,7 @@
+use crate::{header, point};
 use js_sys::Uint8Array;
 use laz::las::file::SimpleReader;
 use std::io::{BufReader, Cursor};
-
-pub mod header;
-pub mod point;
 
 pub struct Reader {}
 
