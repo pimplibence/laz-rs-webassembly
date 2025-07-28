@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::wasm_bindgen;
 pub struct Result {
     pub header: header::Header,
     pub coordinates_length: usize,
-    pub coordinates_pointer: *const f32,
+    pub coordinates_pointer: *const f64,
     pub intensity_length: usize,
     pub intensity_pointer: *const u16,
     pub classification_length: usize,
@@ -31,18 +31,18 @@ impl Result {
     }
 
     pub fn set_points(&mut self, points: Vec<point::Point>) {
-        let mut points_vec: Vec<f32> = Vec::new();
+        let mut points_vec: Vec<f64> = Vec::new();
         let mut intensity_vec: Vec<u16> = Vec::new();
         let mut classification_vec: Vec<u8> = Vec::new();
 
-        let scale_x = self.header.scale_x as f32;
-        let scale_y = self.header.scale_y as f32;
-        let scale_z = self.header.scale_z as f32;
+        let scale_x = self.header.scale_x;
+        let scale_y = self.header.scale_y;
+        let scale_z = self.header.scale_z;
 
         for point in &points {
-            points_vec.push(point.x as f32 * scale_x);
-            points_vec.push(point.y as f32 * scale_y);
-            points_vec.push(point.z as f32 * scale_z);
+            points_vec.push(point.x as f64 * scale_x);
+            points_vec.push(point.y as f64 * scale_y);
+            points_vec.push(point.z as f64 * scale_z);
 
             intensity_vec.push(point.intensity);
             classification_vec.push(point.classification);
